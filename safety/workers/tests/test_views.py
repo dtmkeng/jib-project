@@ -1,6 +1,7 @@
+import json
+from rest_framework.test import APIClient
 from django.test import TestCase
 from ..models import Worker
-import json
 
 class TestWorkerListView(TestCase):
     def test_view_should_be_accessible(self):
@@ -27,7 +28,8 @@ class TestWorkerListView(TestCase):
         )
         
         #When
-        response = self.client.get('/workers/')
+        client = APIClient()
+        response = client.get('/workers/')
         
         #Then
         # self.assertContains(response, '<li>first_name</li>')
@@ -51,6 +53,6 @@ class TestWorkerListView(TestCase):
                 'address': 'address1',
             },
         ]
+        # self.maxDiff = None
         
-        self.assertEqual(response.content.decode('utf-8'), json.dumps(worker_list))
-        
+        self.assertEqual(response.data, worker_list)
