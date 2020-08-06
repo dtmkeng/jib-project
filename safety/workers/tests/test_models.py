@@ -1,9 +1,6 @@
 from django.test import TestCase
-from .models import Worker
+from ..models import Worker
 
-# Create your tests here.
-# firstName
-# lastine
 class TestWorkers(TestCase):
     def test_worker_should_have_define_fields(self):
         # Given

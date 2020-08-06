@@ -11,3 +11,6 @@ class WorkerAdmin(admin.ModelAdmin):
         'primary_phone',
         'secondary_phone',
     )
+    list_filter = (
+        'is_available',
+    )
