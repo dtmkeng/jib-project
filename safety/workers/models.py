@@ -4,7 +4,7 @@ from django.db import models
 # 1. Migrate
 
 class Worker(models.Model): 
-    first_neme = models.CharField(max_length=30)
+    first_name = models.CharField(max_length=30)
     last_name = models.CharField(max_length=40)
     is_available = models.BooleanField()
     primary_phone = models.CharField(max_length=10)

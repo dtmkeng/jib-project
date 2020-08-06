@@ -5,7 +5,7 @@ from .models import Worker
 @admin.register(Worker)
 class WorkerAdmin(admin.ModelAdmin):
     list_display = (
-        'first_neme',
+        'first_name',
         'last_name',
         'is_available',
         'primary_phone',

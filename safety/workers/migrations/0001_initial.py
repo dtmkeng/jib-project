@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
             name='Worker',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('first_neme', models.CharField(max_length=30)),
+                ('first_name', models.CharField(max_length=30)),
                 ('last_name', models.CharField(max_length=40)),
                 ('is_available', models.BooleanField()),
                 ('primary_phone', models.CharField(max_length=10)),
