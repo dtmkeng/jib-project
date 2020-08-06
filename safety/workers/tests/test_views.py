@@ -1,9 +1,8 @@
 import json
-from rest_framework.test import APIClient
-from django.test import TestCase
+from rest_framework.test import APITestCase
 from ..models import Worker
 
-class TestWorkerListView(TestCase):
+class TestWorkerListView(APITestCase):
     def test_view_should_be_accessible(self):
         result = self.client.get('/workers/')
         self.assertEqual(result.status_code ,200)
@@ -28,8 +27,7 @@ class TestWorkerListView(TestCase):
         )
         
         #When
-        client = APIClient()
-        response = client.get('/workers/')
+        response = self.client.get('/workers/')
         
         #Then
         # self.assertContains(response, '<li>first_name</li>')
