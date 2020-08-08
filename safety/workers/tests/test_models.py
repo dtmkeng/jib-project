@@ -1,3 +1,6 @@
+import os
+from unittest.mock import MagicMock
+from django.core.files import File
 from django.test import TestCase
 from ..models import Worker
 
@@ -11,6 +14,10 @@ class TestWorkers(TestCase):
         primary_phone = '081-669-777x'
         secondary_phone = '092-009-000x'
         address = 'Geeky Bass All Start'
+        
+        image_mock = MagicMock(spec=File)
+        image_mock.name = 'keng.png'
+        
         # When
         worker = Worker.objects.create(
             first_name=first_name,
@@ -19,6 +26,7 @@ class TestWorkers(TestCase):
             primary_phone=primary_phone,
             secondary_phone=secondary_phone,
             address=address,
+            image_proflie=image_mock
         )
         # Then
         self.assertEqual(worker.first_name, first_name)
@@ -27,3 +35,6 @@ class TestWorkers(TestCase):
         self.assertEqual(worker.primary_phone, primary_phone)
         self.assertEqual(worker.secondary_phone, secondary_phone)
         self.assertEqual(worker.address, address)
+        self.assertEqual(worker.image_proflie.name, image_mock.name)
+        
+        os.remove('keng.png')
