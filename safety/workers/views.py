@@ -1,9 +1,9 @@
-import json
+# import json
 
-from django.views import View
-from django.http import HttpResponse
+# from django.views import View
+# from django.http import HttpResponse
 from .models import Worker
-from django.shortcuts import render
+# from django.shortcuts import render
 from rest_framework.response import Response
 from rest_framework import serializers
 from rest_framework.views import APIView
@@ -16,7 +16,8 @@ class WorkerSerializer(serializers.Serializer):
     primary_phone = serializers.CharField()
     secondary_phone = serializers.CharField()
     address = serializers.CharField()
-    
+
+
 # class base view
 class WorkerListView(APIView):
     def get(self, request):
@@ -29,5 +30,3 @@ class WorkerListView(APIView):
 # class WorkerListViewSetView(viewsets.ModelViewSet):
 #     queryset = Worker.objects.all()
 #     serializer_class = WorkerSerializer
-
-    

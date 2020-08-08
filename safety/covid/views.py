@@ -2,6 +2,7 @@ from django.views import View
 from django.http import HttpResponse
 import requests
 
+
 # Create your views here.
 class CovidView(View):
     def get(self, request):

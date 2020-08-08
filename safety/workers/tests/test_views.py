@@ -1,38 +1,39 @@
-import json
+# import json
 from rest_framework.test import APITestCase
 from ..models import Worker
+
 
 class TestWorkerListView(APITestCase):
     def test_view_should_be_accessible(self):
         result = self.client.get('/workers/')
-        self.assertEqual(result.status_code ,200)
-        
+        self.assertEqual(result.status_code, 200)
+
     def test_view_should_render_list_of_worker_name(self):
         # Given
         Worker.objects.create(
-            first_name = 'first_name',
-            last_name = 'last_name',
-            is_available = True,
-            primary_phone = 'primary_phone',
-            secondary_phone = 'secondary_phone',
-            address = 'address',
+            first_name='first_name',
+            last_name='last_name',
+            is_available=True,
+            primary_phone='primary_phone',
+            secondary_phone='secondary_phone',
+            address='address',
         )
         Worker.objects.create(
-            first_name = 'first_name1',
-            last_name = 'last_name1',
-            is_available = True,
-            primary_phone = 'primary_phone1',
-            secondary_phone = 'secondary_phone1',
-            address = 'address1',
+            first_name='first_name1',
+            last_name='last_name1',
+            is_available=True,
+            primary_phone='primary_phone1',
+            secondary_phone='secondary_phone1',
+            address='address1',
         )
-        
-        #When
+
+        # When
         response = self.client.get('/workers/')
-        
-        #Then
+
+        # Then
         # self.assertContains(response, '<li>first_name</li>')
         # self.assertContains(response, '<li>first_name1</li>')
-        
+
         worker_list = [
             {
                 'first_name': 'first_name',
@@ -42,7 +43,7 @@ class TestWorkerListView(APITestCase):
                 'secondary_phone': 'secondary_phone',
                 'address': 'address',
             },
-             {
+            {
                 'first_name': 'first_name1',
                 'last_name': 'last_name1',
                 'is_available': True,
@@ -52,5 +53,5 @@ class TestWorkerListView(APITestCase):
             },
         ]
         # self.maxDiff = None
-        
+
         self.assertEqual(response.data, worker_list)

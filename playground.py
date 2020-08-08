@@ -1,5 +1,5 @@
 # variable
-a = 1 
+a = 1
 b = 'String'
 c = True
 print(a, b, c)
@@ -8,17 +8,17 @@ print(a, b, c)
 print(f'c is {c}, {a}')
 
 # list
-l = [1, 3, 4]
-print(l)
+ls = [1, 3, 4]
+print(ls)
 
 # tuple is immutable
 t = (1, 3, 4, 5)
 print(t)
 
 
-# dict 
+# dict
 
-dt  = {
+dt = {
     'name': 'keng',
     'team': 'ODDS',
 }
@@ -29,22 +29,22 @@ print(dt.values())
 print(dt.items())
 
 # challent
-print(f'l at index 0: {l[0]}')
+print(f'l at index 0: {ls[0]}')
 print(f't at index 1: {t[0]}')
 print(f'dt at key team: {dt["team"]}')
 
-# condtion 
+# condtion
 a = 3
-if a == 1: 
+if a == 1:
     print('a')
-elif a == 2: 
+elif a == 2:
     print('equle 2')
-else: 
+else:
     print('not equle')
 
-l = [1, 3, 4, 5]
+ls = [1, 3, 4, 5]
 
-for item in l:
+for item in ls:
     print(item)
     if item == a:
         print('yeah')
