@@ -12,7 +12,7 @@ class TestRandom(unittest.TestCase):
         ## assert here
         mock.assert_called_once_with(1, 10)
         
-    @patch('__main__.getran.random.randint')
+    @patch('getran.random.randint')
     def test_it_should_get_4_when_random_get_3(self, mock):
         #mock
         mock.return_value = 3
