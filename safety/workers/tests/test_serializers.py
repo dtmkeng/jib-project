@@ -11,7 +11,7 @@ class TestSerializer(TestCase):
         primary_phone = '081-669-777x'
         secondary_phone = '092-009-000x'
         address = 'Geeky Bass All Start'
-        
+
         # When
         worker = Worker.objects.create(
             first_name=first_name,
@@ -21,9 +21,9 @@ class TestSerializer(TestCase):
             secondary_phone=secondary_phone,
             address=address,
         )
-        
+
         serializer = WorkerSerializer(worker)
-        
+
         expected = {
             'first_name': first_name,
             'last_name': last_name,
@@ -32,6 +32,5 @@ class TestSerializer(TestCase):
             'secondary_phone': secondary_phone,
             'address': address,
         }
-        
+
         assert serializer.data == expected
-    

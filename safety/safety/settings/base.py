@@ -43,6 +43,7 @@ THIRD_PARTY_APPS = [
 LOCAL_APPS = [
     'covid',
     'workers',
+    'certificates',
 ]
 
 # Application definition

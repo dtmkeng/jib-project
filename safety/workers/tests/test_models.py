@@ -14,10 +14,10 @@ class TestWorkers(TestCase):
         primary_phone = '081-669-777x'
         secondary_phone = '092-009-000x'
         address = 'Geeky Bass All Start'
-        
+
         image_mock = MagicMock(spec=File)
         image_mock.name = 'keng.png'
-        
+
         # When
         worker = Worker.objects.create(
             first_name=first_name,
@@ -30,7 +30,7 @@ class TestWorkers(TestCase):
         )
         # Then
         self.assertEqual(worker.first_name, first_name)
-        assert worker.first_name == first_name # use assert pytest
+        assert worker.first_name == first_name  # use assert pytest
         self.assertEqual(worker.last_name, last_name)
         self.assertEqual(worker.is_available, is_available)
         assert worker.is_available is is_available  # use assert pytest
@@ -38,5 +38,5 @@ class TestWorkers(TestCase):
         self.assertEqual(worker.secondary_phone, secondary_phone)
         self.assertEqual(worker.address, address)
         self.assertEqual(worker.image_proflie.name, image_mock.name)
-        
+
         os.remove('media/keng.png')
