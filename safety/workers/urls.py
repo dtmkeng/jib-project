@@ -2,11 +2,11 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from .views import  (
     WorkerListView,
-    WorkerListViewSetView,
+    # WorkerListViewSetView,
 )
-router = DefaultRouter()
-router.register(r'', WorkerListViewSetView)
+# router = DefaultRouter()
+# router.register(r'', WorkerListViewSetView)
 urlpatterns = [
-    path('xxx', WorkerListView.as_view()),
-    path('', include(router.urls)),
+    path('', WorkerListView.as_view()),
+    # path('', include(router.urls)),
 ]
