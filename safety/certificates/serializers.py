@@ -4,3 +4,4 @@ from .models import Certificate
 class CertificateSerializer(ModelSerializer):
     class Meta:
         model = Certificate
+        fields = '__all__'

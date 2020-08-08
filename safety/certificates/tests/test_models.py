@@ -1,5 +1,6 @@
 from django.test import TestCase
 from ..models import Certificate
+from workers.models import Worker
 
 
 class TestWorkers(TestCase):
@@ -14,11 +15,23 @@ class TestWorkers(TestCase):
         name = 'JS Certificat by ODDS'
         issued_by = 'ODDS ProoF'
         
+        
+        worker = Worker.objects.create(
+            first_name='first_name',
+            last_name='last_name',
+            is_available=True,
+            primary_phone='primary_phone',
+            secondary_phone='secondary_phone',
+            address='address',
+        )
+        
         # When
-        worker = Certificate.objects.create(
+        certificate = Certificate.objects.create(
             name=name,
             issued_by=issued_by,
+            worker=worker,
         )
         # Then
-        assert worker.name == name
-        assert worker.issued_by == issued_by
+        assert certificate.name == name
+        assert certificate.issued_by == issued_by
+        assert certificate.worker == worker
