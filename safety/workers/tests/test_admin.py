@@ -15,6 +15,7 @@ class WorkerAdminTest(TestCase):
             'is_available',
             'primary_phone',
             'secondary_phone',
+            'image_proflie',
         )
         self.assertEqual(WorkerAdmin.list_display, expected)
 

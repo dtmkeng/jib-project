@@ -12,6 +12,7 @@ class WorkerAdmin(admin.ModelAdmin):
         'is_available',
         'primary_phone',
         'secondary_phone',
+        'image_proflie',
     )
     list_filter = (
         'is_available',

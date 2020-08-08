@@ -37,4 +37,4 @@ class TestWorkers(TestCase):
         self.assertEqual(worker.address, address)
         self.assertEqual(worker.image_proflie.name, image_mock.name)
         
-        os.remove('keng.png')
+        os.remove('media/keng.png')
